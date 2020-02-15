@@ -19,13 +19,20 @@ const StyledButton = styled.button`
     &:hover {
         opacity: 0.8;
     }
+    &:disabled:hover {
+        opacity: 1;
+    }
 `;
 
 const DefaultButton = ({
     children,
-    onClick
+    onClick,
+    disabled
 }) => (
-    <StyledButton onClick={onClick}>
+    <StyledButton 
+        onClick={onClick}
+        disabled={disabled}    
+    >
         {children}
     </StyledButton>
 );
