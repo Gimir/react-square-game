@@ -1,4 +1,13 @@
-import '../constants/actions';
+import {
+    SET_GAME_STATUS,
+    SET_GAME_MODES,
+    SET_CURRENT_MODE,
+    SET_USERNAME,
+    SET_LIDER_BOARD,
+    INCREASE_AI_COUNT,
+    INCREASE_USER_COUNT,
+    RESET_GAME
+} from '../constants/actions';
 
 export const setGameStatus = status => ({
     type: SET_GAME_STATUS,
