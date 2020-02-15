@@ -16,11 +16,12 @@ const StyledInput = styled.input`
 
 const TextInput = ({
     value,
-    onChange
+    onChange,
+    placeholder
 }) => (
     <StyledInput 
         type="text" 
-        placeholder="Enter your name" 
+        placeholder={placeholder} 
         value={value}
         onChange={onChange}
     />
