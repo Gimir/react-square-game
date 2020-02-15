@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getGameModes } from '../action_creators/asyncActions';
 import { setCurrentMode, setUsername, setGameStatus } from '../action_creators/syncActions';
 
+import Menu from '../components/Menu';
 import DropdownMenu from '../components/DropdownMenu';
 import TextInput from '../components/TextInput';
 import DefaultButton from '../components/DefaultButton';
@@ -17,6 +18,7 @@ const MenuContainer = ({
     setGameStatus
 }) => {
     const [nameInputValue, setNameInputValue] = useState('');
+    const [nameInputError, setNameInputError] = useState(false);
     const [selectedMode, setSelectedMode] = useState(null);
 
     useEffect(() => {
@@ -24,7 +26,7 @@ const MenuContainer = ({
     }, []);
 
     return (
-        <div>
+        <Menu>
             <DropdownMenu 
                 title={currentMode.mode}
                 items={gameModes}
@@ -34,6 +36,7 @@ const MenuContainer = ({
                 value={nameInputValue}
                 onChange={onNameInputChange}
                 placeholder="Enter your name"
+                error={nameInputError}
             />
             <DefaultButton 
                 onClick={onPlayButtonClick}
@@ -41,7 +44,7 @@ const MenuContainer = ({
             >
                 {gameStatus !== 'FIRST_GAME' ? 'Play again' : 'Play'}
             </DefaultButton>
-        </div>
+        </Menu>
     )
 
     function onModeClickHandler(modeTitle) {
@@ -52,13 +55,19 @@ const MenuContainer = ({
         setNameInputValue(e.target.value);
     };
     function onPlayButtonClick() {
-        setCurrentMode(selectedMode);
+        if (nameInputValue.length < 1) {
+            setNameInputError(true);
+            return;
+        }
+        if (!selectedMode) setCurrentMode(gameModes[0]);
+        else setCurrentMode(selectedMode);
+        setNameInputError(false);
         setUsername(nameInputValue);
         setGameStatus('START');
     };
 };
 
-
+// REDUX STATE, DISPATCH PROPS
 const mapStateToProps = state => ({
     gameModes: state.gameModes,
     gameStatus: state.gameStatus,
