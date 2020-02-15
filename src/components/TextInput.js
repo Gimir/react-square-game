@@ -5,6 +5,7 @@ import colors from '../constants/colors';
 const StyledInput = styled.input`
     width: 250px;
     height: 50px;
+    margin: 0 20px;
     background-color: ${colors.secondaryBackground};
     border: 1px solid ${colors.secondaryBackground};
     border-radius: 5px;
