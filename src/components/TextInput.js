@@ -7,7 +7,7 @@ const StyledInput = styled.input`
     height: 50px;
     background-color: ${colors.secondaryBackground};
     border: none;
-    border-radius: 2px;
+    border-radius: 5px;
     color: ${colors.primaryText};
     font-size: 20px;
     padding-left: 10px;
