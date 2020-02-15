@@ -9,7 +9,7 @@ const DropdownMenu = ({
 }) => (
     <DropdownButton
         id="dropdown-basic-button" 
-        title={title ? title : 'Pick game mode'}
+        title={title}
     >
         {
             items.map((item, index) => (
