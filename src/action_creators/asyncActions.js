@@ -21,3 +21,14 @@ export const getGameModes = () => {
             .catch(err => console.error(err));
     };
 };
+
+export const getLiderBoard = () => {
+    return dispatch => {
+        axios
+            .get(api.liderBoard)
+            .then(responce => {
+                dispatch(setLiderBoard(responce.data));
+            })
+            .catch(err => console.error(err));
+    };
+};
