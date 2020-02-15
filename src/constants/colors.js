@@ -7,5 +7,5 @@ export default  {
     primaryBackground: '#CFD8DC',
     secondaryText: '#9FA8AB',
     primaryText: '#888888',
-    buttonColor: '#ffffff'
+    buttonTextColor: '#ffffff'
 };
