@@ -10,7 +10,6 @@ import DefaultButton from '../components/DefaultButton';
 
 const MenuContainer = ({
     gameModes,
-    currentMode,
     gameStatus,
     getGameModes,
     setCurrentMode,
@@ -28,7 +27,7 @@ const MenuContainer = ({
     return (
         <Menu>
             <DropdownMenu 
-                title={currentMode.mode}
+                title={selectedMode ? selectedMode.mode : 'Pick game mode'}
                 items={gameModes}
                 onItemClick={onModeClickHandler}
             />
@@ -59,8 +58,10 @@ const MenuContainer = ({
             setNameInputError(true);
             return;
         }
-        if (!selectedMode) setCurrentMode(gameModes[0]);
-        else setCurrentMode(selectedMode);
+        if (!selectedMode) {
+            return;
+        }
+        setCurrentMode(selectedMode)
         setNameInputError(false);
         setUsername(nameInputValue);
         setGameStatus('START');
@@ -70,8 +71,7 @@ const MenuContainer = ({
 // REDUX STATE, DISPATCH PROPS
 const mapStateToProps = state => ({
     gameModes: state.gameModes,
-    gameStatus: state.gameStatus,
-    currentMode: state.currentMode
+    gameStatus: state.gameStatus
 });
 const mapDispatchToProps = dispatch => ({
     getGameModes: () => dispatch(getGameModes()),
