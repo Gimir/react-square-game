@@ -1,4 +1,4 @@
-export default =  {
+export default  {
     green: '#00E871',
     blue: '#42D8E8',
     red: '#E85A5F',
