@@ -6,7 +6,7 @@ const StyledInput = styled.input`
     width: 250px;
     height: 50px;
     background-color: ${colors.secondaryBackground};
-    border: none;
+    border: 1px solid ${colors.secondaryBackground};
     border-radius: 5px;
     color: ${colors.primaryText};
     font-size: 20px;
@@ -17,13 +17,15 @@ const StyledInput = styled.input`
 const TextInput = ({
     value,
     onChange,
-    placeholder
+    placeholder,
+    error
 }) => (
     <StyledInput 
         type="text" 
         placeholder={placeholder} 
         value={value}
         onChange={onChange}
+        style={{borderColor: error ? 'red' : colors.secondaryBackground}}
     />
 );
 
