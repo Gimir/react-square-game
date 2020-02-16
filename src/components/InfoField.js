@@ -8,12 +8,16 @@ const StyledDiv = styled.div`
     background-color: ${colors.primaryBackground};
     border-radius: 5px;
     padding: 0 10px;
+    margin-top: 30px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     color: ${colors.secondaryText};
     font-size: 20px;
+    p {
+        margin: 0;
+    }
 `;
 
 const InfoField = ({

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledMenu = styled.div`
     width: 100%;
-    height: 150px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;

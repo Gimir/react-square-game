@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getLiderBoard } from '../action_creators/asyncActions';
 
+import Sidebar from '../components/Sidebar';
+import Title from '../components/Title';
+import WinnersList from '../components/WinnersList';
+
 const RaitingContainer = ({
     liderBoard,
     getLiderBoard
@@ -12,9 +16,10 @@ const RaitingContainer = ({
     }, []);
 
     return (
-        <div>
-
-        </div>
+        <Sidebar>
+            <Title>Leader Board</Title>
+            <WinnersList winners={liderBoard} />
+        </Sidebar>
     );
 };
 
