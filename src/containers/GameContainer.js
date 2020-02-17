@@ -20,8 +20,9 @@ const GameContainer = ({
 }) => {
     const [gameRows, setGameRows] = useState([]);
     const [winner, setWinner] = useState('');
+
     useEffect(() => {
-        if (gameStatus === 'START') setGameRows(createGameRows(currentMode.field))
+        if (gameStatus === 'START') setGameRows(createGameTable(currentMode.field))
     }, [gameStatus])
 
     useEffect(() => {
@@ -39,6 +40,7 @@ const GameContainer = ({
             };
         }
     }, [gameRows]);
+
     return (
         <GameArea>
             <Title>{winner}</Title>
@@ -49,8 +51,8 @@ const GameContainer = ({
             </GameBoard>
         </GameArea>
     );
-
-    function createGameRows(amount) {
+    //CONTAINER FUNCTIONS
+    function createGameTable(amount) {
         const rows =[];
         const cols = [];
         for (let i = 0; i < amount; i++) {
@@ -104,6 +106,8 @@ const GameContainer = ({
 
 };
 
+
+// REDUX STATE, DISPATCH PROPS
 const mapStateToProps = state => ({
     gameStatus: state.gameStatus,
     currentMode: state.currentMode,
