@@ -1,7 +1,7 @@
 export default  {
-    green: '#00E871',
-    blue: '#42D8E8',
-    red: '#E85A5F',
+    green: 'rgb(0, 232, 113)',
+    blue: 'rgb(66, 216, 232)',
+    red: 'rgb(232, 90, 95)',
     buttonBackground: '#7B8D93',
     secondaryBackground: '#F3F3F3',
     primaryBackground: '#CFD8DC',
