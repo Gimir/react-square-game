@@ -4,8 +4,6 @@ import {
     SET_CURRENT_MODE,
     SET_USERNAME,
     SET_LIDER_BOARD,
-    INCREASE_AI_COUNT,
-    INCREASE_USER_COUNT,
     RESET_GAME
 } from '../constants/actions';
 
@@ -32,14 +30,6 @@ export const setUsername = name => ({
 export const setLiderBoard = board => ({
     type: SET_LIDER_BOARD,
     payload: board
-});
-
-export const increaseAICount = () => ({
-    type: INCREASE_AI_COUNT
-});
-
-export const increaseUserCount = () => ({
-    type: INCREASE_USER_COUNT
 });
 
 export const resetGame = () => ({
