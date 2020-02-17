@@ -47,7 +47,6 @@ export const updateLiderBoard = (winner) => {
                 "date": now
             },
             contentType: "application/json",
-            processData: false,
             dataType: "json"
         })
         .then(response => {
