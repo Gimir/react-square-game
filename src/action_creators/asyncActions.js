@@ -1,19 +1,20 @@
 import axios from 'axios';
 import api from '../constants/api'
 import { setGameModes, setLiderBoard } from './syncActions';
+import { getDate } from '../helpers/';
 
 export const getGameModes = () => {
     return dispatch => {
         axios
             .get(api.modes)
-            .then(responce => {
-                const objectKeys = Object.keys(responce.data)
+            .then(response => {
+                const objectKeys = Object.keys(response.data)
                 const modes = [];
                 for (let key of objectKeys) {
                     modes.push({
                         mode: key,
-                        delay: responce.data[key].delay,
-                        field: responce.data[key].field
+                        delay: response.data[key].delay,
+                        field: response.data[key].field
                     });
                 };
                 dispatch(setGameModes(modes));    
@@ -26,9 +27,32 @@ export const getLiderBoard = () => {
     return dispatch => {
         axios
             .get(api.liderBoard)
-            .then(responce => {
-                dispatch(setLiderBoard(responce.data));
+            .then(response => {
+                dispatch(setLiderBoard(response.data));
             })
             .catch(err => console.error(err));
+    };
+};
+
+export const updateLiderBoard = (winner) => {
+    return dispatch => {
+
+        const now = getDate();
+
+        axios({
+            method: 'post',
+            url: api.liderBoard,
+            data: {
+                "winner": winner,
+                "date": now
+            },
+            contentType: "application/json",
+            processData: false,
+            dataType: "json"
+        })
+        .then(response => {
+            dispatch(setLiderBoard(response.data));
+        })
+        .catch(err => console.error(err));
     };
 };
