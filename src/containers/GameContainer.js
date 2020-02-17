@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux';
 import colors from '../constants/colors';
+import { updateLiderBoard } from '../action_creators/asyncActions';
 import { setGameStatus } from '../action_creators/syncActions';
+import { getRandomInt } from '../helpers/';
 
 import GameArea from '../components/GameArea';
 import Title from '../components/Title';
@@ -13,7 +15,8 @@ const GameContainer = ({
     gameStatus,
     setGameStatus,
     currentMode,
-    userName
+    userName,
+    updateLiderBoard
 }) => {
     const [gameRows, setGameRows] = useState([]);
     const [winner, setWinner] = useState('');
@@ -66,11 +69,13 @@ const GameContainer = ({
         if (AICount > (currentMode.field * currentMode.field / 2)) {
             setWinner('Computer won')
             setGameStatus('STOP');
+            updateLiderBoard('AI computer');
             return;
         }
         else if (userCount > (currentMode.field * currentMode.field / 2)) {
             setWinner(`${userName} won`);
             setGameStatus('STOP');
+            updateLiderBoard(userName);
             return;
         }
         setTimeout(() => {
@@ -90,12 +95,6 @@ const GameContainer = ({
         }, 500)
     }
 
-    function getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min)) + min;
-    }
-
     function onGameBoxClick(e) {
         if (e.target.style.backgroundColor === colors.blue) {
             e.target.style.backgroundColor = colors.green;
@@ -112,7 +111,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    setGameStatus: status => dispatch(setGameStatus(status))
+    setGameStatus: status => dispatch(setGameStatus(status)),
+    updateLiderBoard: winner => dispatch(updateLiderBoard(winner))
 });
 
 export default connect(
