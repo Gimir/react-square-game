@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import colors from '../constants/colors';
 
+import PlainText from './PlainText';
+
 const StyledDiv = styled.div`
     width: 100%;
     height: 50px;
@@ -13,8 +15,6 @@ const StyledDiv = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    color: ${colors.secondaryText};
-    font-size: 20px;
     p {
         margin: 0;
     }
@@ -25,8 +25,8 @@ const InfoField = ({
     date
 }) => (
     <StyledDiv>
-        <p>{winner}</p>
-        <p>{date}</p>
+        <PlainText>{winner}</PlainText>
+        <PlainText>{date}</PlainText>
     </StyledDiv>
 );
 
