@@ -47,7 +47,7 @@ const GameContainer = ({
     return (
         <GameArea>
             <Title>{winner}</Title>
-            <GameBoard height={currentMode.field * 50}>
+            <GameBoard height={currentMode.field * 50} width={currentMode.field * 50}>
                 {
                     gameRows
                 }

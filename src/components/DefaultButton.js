@@ -21,6 +21,7 @@ const StyledButton = styled.button`
     }
     &:disabled:hover {
         opacity: 1;
+        cursor: default;
     }
 `;
 
