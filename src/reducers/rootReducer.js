@@ -5,11 +5,10 @@ import currentMode from './currentMode';
 import userName from './userName';
 import liderBoard from './liderBoard';
 
-
-export default () => combineReducers({
-    gameStatus,
-    gameModes,
-    currentMode,
-    userName,
-    liderBoard
+export default combineReducers({
+  gameStatus,
+  gameModes,
+  currentMode,
+  userName,
+  liderBoard,
 });

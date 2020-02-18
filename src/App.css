@@ -4,19 +4,19 @@
   margin: 0;
 }
 .App {
-    width: 100%;
-    display: flex;
+  width: 100%;
+  display: flex;
 }
 
 .app--content {
-    width: 70%;
-    border-right: 1px solid #aaa;
-    display: flex;
-    flex-direction: column;
-    padding-top: 40px;
+  width: 70%;
+  border-right: 1px solid #aaa;
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
 }
 .app--sidebar {
-    width: 30%;
-    display: flex;
-    padding-top: 40px;
+  width: 30%;
+  display: flex;
+  padding-top: 40px;
 }
