@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const getDate = () => {
     let today = new Date();
     const dd = String(today.getDate()).padStart(2, '0');
@@ -15,3 +17,17 @@ export const getRandomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+export const createGameTable = (amount, ColComp, RowComp) => {
+    const rows =[];
+    const cols = [];
+    for (let i = 0; i < amount; i++) {
+        cols.push(<ColComp width={100/amount} key={i}></ColComp>)
+    };
+    for (let i = 0; i < amount; i++) {
+        let row = <RowComp height={100/amount} key={i}>
+            {cols}
+        </RowComp>;
+        rows.push(row);
+    };
+    return rows;
+};

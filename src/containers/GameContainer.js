@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux';
+
 import colors from '../constants/colors';
 import { updateLiderBoard } from '../action_creators/asyncActions';
 import { setGameStatus } from '../action_creators/syncActions';
-import { getRandomInt } from '../helpers/';
+import { getRandomInt, createGameTable } from '../helpers/';
 
 import GameArea from '../components/GameArea';
 import Title from '../components/Title';
@@ -22,7 +23,9 @@ const GameContainer = ({
     const [winner, setWinner] = useState('');
 
     useEffect(() => {
-        if (gameStatus === 'START') setGameRows(createGameTable(currentMode.field))
+        if (gameStatus === 'START') {
+            setGameRows(createGameTable(currentMode.field, GameBox, GameRow));
+        }
     }, [gameStatus])
 
     useEffect(() => {
@@ -51,22 +54,8 @@ const GameContainer = ({
             </GameBoard>
         </GameArea>
     );
-    //CONTAINER FUNCTIONS
-    function createGameTable(amount) {
-        const rows =[];
-        const cols = [];
-        for (let i = 0; i < amount; i++) {
-            cols.push(<GameBox width={100/amount} key={i}></GameBox>)
-        };
-        for (let i = 0; i < amount; i++) {
-            let row = <GameRow height={100/amount} key={i}>
-                {cols}
-            </GameRow>;
-            rows.push(row);
-        };
-        return rows;
-    };
 
+    //CONTAINER FUNCTIONS
     function startGame(array, userCount, AICount) {
         if (AICount > (currentMode.field * currentMode.field / 2)) {
             setWinner('Computer won')
