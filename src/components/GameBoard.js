@@ -4,7 +4,7 @@ import colors from '../constants/colors';
 
 const StyledBoard = styled.div`
     border-radius: 10px;
-    border: 1px solid ${colors.secondaryText};
+    border: 1px solid ${colors.secondaryBackground};
     overflow: hidden;
 `;
 

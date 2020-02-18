@@ -4,7 +4,7 @@ import colors from '../constants/colors';
 
 const StyledBox = styled.div`
     height: 100%;
-    border: 1px solid ${colors.secondaryText};
+    border: 1px solid ${colors.secondaryBackground};
 `;
 
 const GameBox = ({

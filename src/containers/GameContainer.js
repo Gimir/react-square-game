@@ -24,6 +24,7 @@ const GameContainer = ({
 
     useEffect(() => {
         if (gameStatus === 'START') {
+            setWinner('');
             setGameRows(createGameTable(currentMode.field, GameBox, GameRow));
         }
     }, [gameStatus])
@@ -60,7 +61,7 @@ const GameContainer = ({
         if (AICount > (currentMode.field * currentMode.field / 2)) {
             setWinner('Computer won')
             setGameStatus('STOP');
-            updateLiderBoard('AI computer');
+            updateLiderBoard('Computer');
             return;
         }
         else if (userCount > (currentMode.field * currentMode.field / 2)) {

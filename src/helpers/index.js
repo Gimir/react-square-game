@@ -31,3 +31,8 @@ export const createGameTable = (amount, ColComp, RowComp) => {
     };
     return rows;
 };
+
+export const cutLargeString = str => {
+    if (str.length > 20) return str.slice(0, 20) + '...';
+    return str;
+};

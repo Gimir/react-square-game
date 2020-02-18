@@ -18,6 +18,12 @@ const StyledDiv = styled.div`
     p {
         margin: 0;
     }
+
+    @media (max-width: 1650px) {
+        flex-direction: column;
+        padding: 10px 0;
+        height: auto;
+    }
 `;
 
 const InfoField = ({

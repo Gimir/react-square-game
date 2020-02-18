@@ -9,14 +9,14 @@
 }
 
 .app--content {
-    width: 50%;
+    width: 70%;
     border-right: 1px solid #aaa;
     display: flex;
     flex-direction: column;
     padding-top: 40px;
 }
 .app--sidebar {
-    width: 50%;
+    width: 30%;
     display: flex;
     padding-top: 40px;
 }
