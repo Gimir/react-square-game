@@ -1,4 +1,4 @@
-import { SET_USERNAME } from '../constants/actions';
+import { SET_USERNAME } from '../constants/actionTypes';
 
 export default (state = 'USER', action) => {
   switch (action.type) {

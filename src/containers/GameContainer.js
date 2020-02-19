@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import colors from '../constants/colors';
-import { updateLiderBoard } from '../action_creators/asyncActions';
-import { setGameStatus } from '../action_creators/syncActions';
+import { updateLiderBoard } from '../action_creators/liderBoard';
+import { setGameStatus } from '../action_creators/gameStatus';
 import { getRandomInt, createGameTable } from '../helpers/';
 
 import GameArea from '../components/GameArea';

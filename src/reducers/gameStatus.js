@@ -1,4 +1,4 @@
-import { SET_GAME_STATUS } from '../constants/actions';
+import { SET_GAME_STATUS } from '../constants/actionTypes';
 
 export default (state = 'FIRST_GAME', action) => {
   switch (action.type) {

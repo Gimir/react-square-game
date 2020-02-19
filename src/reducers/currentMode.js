@@ -1,4 +1,4 @@
-import { SET_CURRENT_MODE } from '../constants/actions';
+import { SET_CURRENT_MODE } from '../constants/actionTypes';
 
 const initialState = {
   mode: '',

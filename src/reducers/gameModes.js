@@ -1,4 +1,4 @@
-import { SET_GAME_MODES } from '../constants/actions';
+import { SET_GAME_MODES } from '../constants/actionTypes';
 
 export default (state = [], action) => {
   switch (action.type) {

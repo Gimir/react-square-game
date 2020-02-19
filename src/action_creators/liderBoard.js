@@ -1,27 +1,12 @@
 import axios from 'axios';
+import { SET_LIDER_BOARD } from '../constants/actionTypes';
 import api from '../constants/api';
-import { setGameModes, setLiderBoard } from './syncActions';
 import { getDate } from '../helpers/';
 
-export const getGameModes = () => {
-  return dispatch => {
-    axios
-      .get(api.modes)
-      .then(response => {
-        const objectKeys = Object.keys(response.data);
-        const modes = [];
-        for (let key of objectKeys) {
-          modes.push({
-            mode: key,
-            delay: response.data[key].delay,
-            field: response.data[key].field,
-          });
-        }
-        dispatch(setGameModes(modes));
-      })
-      .catch(err => console.error(err));
-  };
-};
+export const setLiderBoard = board => ({
+  type: SET_LIDER_BOARD,
+  payload: board,
+});
 
 export const getLiderBoard = () => {
   return dispatch => {

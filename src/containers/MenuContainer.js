@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getGameModes } from '../action_creators/asyncActions';
-import { setCurrentMode, setUsername, setGameStatus } from '../action_creators/syncActions';
+
+import { getGameModes } from '../action_creators/gameModes';
+import { setCurrentMode } from '../action_creators/currentMode';
+import { setUsername } from '../action_creators/userName';
+import { setGameStatus } from '../action_creators/gameStatus';
 
 import Menu from '../components/Menu';
 import DropdownMenu from '../components/DropdownMenu';

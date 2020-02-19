@@ -1,4 +1,4 @@
-import { SET_LIDER_BOARD } from '../constants/actions';
+import { SET_LIDER_BOARD } from '../constants/actionTypes';
 
 export default (state = [], action) => {
   switch (action.type) {

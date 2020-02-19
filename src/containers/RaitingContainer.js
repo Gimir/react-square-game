@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getLiderBoard } from '../action_creators/asyncActions';
+
+import { getLiderBoard } from '../action_creators/liderBoard';
 
 import Sidebar from '../components/Sidebar';
 import Title from '../components/Title';
