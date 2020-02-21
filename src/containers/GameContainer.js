@@ -25,7 +25,7 @@ const GameContainer = ({ gameStatus, setGameStatus, currentMode, userName, updat
 
   useEffect(() => {
     if (gameStatus === 'START') {
-      const gameBoxes = Array.prototype.slice.call(document.querySelectorAll('.game-box'));
+      const gameBoxes = Array.from(document.querySelectorAll('.game-box'));
       gameBoxes.forEach(element => {
         element.addEventListener('click', onGameBoxClick);
       });
